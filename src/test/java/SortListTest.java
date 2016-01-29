@@ -55,4 +55,22 @@ public class SortListTest {
 
         assertEquals("SortList.addRawListElement is not adding numbers correctly", expectedSize, actualSize);
     }
+
+    @Test
+    public void shouldSortList(){
+        List<Integer> expectedList = Arrays.asList(1, 2, 12, 40);
+
+        this.sort.setUserNumber(4);
+
+        this.sort.addRawListElement(12);
+        this.sort.addRawListElement(1);
+        this.sort.addRawListElement(40);
+        this.sort.addRawListElement(2);
+
+        this.sort.bubbleSort();
+
+        List<Integer> actualList = this.sort.getSortList();
+
+        assertThat(actualList, is(expectedList));
+    }
 }
